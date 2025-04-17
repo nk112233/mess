@@ -60,14 +60,14 @@ const MemberProfile = () => {
         console.log('Using token:', token ? 'Token present' : 'No token');
         
         // Fetch member details
-        const memberResponse = await axios.get(`http://localhost:5000/api/members/${id}`, {
+        const memberResponse = await axios.get(`https://mess-6trx.onrender.com/api/members/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log('Member response:', memberResponse.data);
         setMember(memberResponse.data.data);
 
         // Fetch attendance history
-        const attendanceResponse = await axios.get(`http://localhost:5000/api/attendance/member/${id}`, {
+        const attendanceResponse = await axios.get(`https://mess-6trx.onrender.com/api/attendance/member/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log('Attendance response:', attendanceResponse.data);
@@ -118,7 +118,7 @@ const MemberProfile = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/members/${id}/payment`,
+        `https://mess-6trx.onrender.com/api/members/${id}/payment`,
         paymentForm,
         { headers: { Authorization: `Bearer ${token}` } }
       );

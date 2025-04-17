@@ -72,7 +72,7 @@ const Members = () => {
 
   const fetchMembers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/members', {
+      const response = await axios.get('https://mess-6trx.onrender.com/api/members', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMembers(response.data.data);
@@ -107,7 +107,7 @@ const Members = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/members', formData, {
+      await axios.post('https://mess-6trx.onrender.com/api/members', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchMembers();
@@ -120,7 +120,7 @@ const Members = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this member?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/members/${id}`, {
+        await axios.delete(`https://mess-6trx.onrender.com/api/members/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         fetchMembers();
@@ -184,7 +184,7 @@ const Members = () => {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/members/${editingMember._id}`, editFormData, {
+      await axios.put(`https://mess-6trx.onrender.com/api/members/${editingMember._id}`, editFormData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchMembers();
